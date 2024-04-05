@@ -1,0 +1,524 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Pixellens MBM</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+  </head>
+
+  <style>
+
+  
+ body{
+
+    background-color: lightblue;
+     }
+
+    .navbar{
+  margin: 10px 10px;
+  background-color: lightcyan;
+  border-radius: 50px;
+  border-top-left-radius: 0px;
+  font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-weight: bolder;
+  
+}
+.nav-link:hover {
+    transform: scale(1.1); /* Adjust the scale factor as needed */
+    transition: transform 0.3s ; /* Add smooth transition effect */
+}
+
+  .carousel {
+    border-radius: 20px; /* Adjust the value as needed */
+    overflow: hidden; /* Ensure content within the carousel respects the border radius */
+  }
+
+  .card {
+  background-color: rgba(235, 240, 240, 0.352); /* Adjust the last value for transparency */
+  backdrop-filter: blur(10px); /* Add a blur effect */
+  border-radius: 50px;
+  border-top-left-radius: 0px;
+}
+
+.card-body.blur {
+  backdrop-filter: blur(10px); /* Apply the blur effect to the card body */
+}
+
+
+.animate {
+    transition: opacity 0.5s ease-out;
+  }
+
+  .hide {
+    opacity: 0;
+    pointer-events: none;
+  }
+
+   /* Animation for pop-up effect */
+   .pop-up {
+    animation: popUp 0.5s ease forwards;
+  }
+
+  #image2 {
+    
+    filter: blur(5px);
+    /* Set the opacity level */
+}
+  .modal-content {
+    background-color: rgba(224, 255, 255, 0.658);
+    filter:blur(2px)
+  }
+  @keyframes popUp {
+    from {
+      opacity: 0;
+      transform: translateY(50%);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+.featurette2 {
+  display: flex;
+  flex-direction: row-reverse; /* Reverse the order of flex items */
+}
+
+.featurette5{
+  display: flex;
+  flex-direction: row-reverse; /* Reverse the order of flex items */
+}
+
+
+  .text-gradient{
+   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  }
+  
+
+
+
+
+  #backgroundImageContainer1 {
+    background-image: url('../elements/album/CLUB/On_camera_logo_A_detailed_illustration-removebg-preview.png');
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+  #backgroundImageContainer2 {
+    background-image: url('../elements/album/CLUB/c5592ae22625bce2611246395a8585ce-removebg-preview.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 30%;
+  }
+  #backgroundImageContainer3 {
+    background-image: url('../elements/album/CLUB/6ecbf39ab4c166fa5ebec13ece6d61ba-removebg-preview.png');
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+  #backgroundImageContainer4 {
+    background-image: url('../elements/album/CLUB/40b78f7074bce60e940431395691c0c7-removebg-preview.png');
+    background-repeat: no-repeat;
+    background-position: center;
+   background-size: 30%;
+  }
+  
+  #backgroundImageContainer5 {
+    background-image: url('../elements/album/CLUB/download-removebg-preview.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    backdrop-filter: shadow(50px);
+  }
+  
+
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root{
+    --index: calc(1vw + 1vh);
+    --transition: cubic-bezier(.1, .7, 0, 1);
+}
+
+
+.wrapper{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+.items{
+    display: flex;
+    gap: 0.4rem;
+    perspective: calc(var(--index) * 35);
+}
+
+.item{
+    width: calc(var(--index) * 3);
+    height: calc(var(--index) * 12);
+    background-color: #222;
+    background-size: cover;
+    background-position: center;
+    cursor: pointer;
+    filter: grayscale(1) brightness(.5);
+    transition: transform 1.25s var(--transition), filter 3s var(--transition), width 1.25s var(--transition);
+    will-change: transform, filter, rotateY, width;
+}
+
+.item::before, .item::after{
+    content: '';
+    position: absolute;
+    height: 100%;
+    width: 20px;
+    right: calc(var(--index) * -1);
+}
+
+.item::after{
+    left: calc(var(--index) * -1);
+}
+
+.items .item:hover{
+    filter: inherit;
+    transform: translateZ(calc(var(--index) * 10));
+}
+
+/*Right*/
+
+.items .item:hover + *{
+    filter: inherit;
+    transform: translateZ(calc(var(--index) * 8.5)) rotateY(35deg);
+    z-index: -1;
+}
+
+.items .item:hover + * + *{
+    filter: inherit;
+    transform: translateZ(calc(var(--index) * 5.6)) rotateY(40deg);
+    z-index: -2;
+}
+
+.items .item:hover + * + * + *{
+    filter: inherit;
+    transform: translateZ(calc(var(--index) * 2.5)) rotateY(30deg);
+    z-index: -3;
+}
+
+.items .item:hover + * + * + * + *{
+    filter: inherit;
+    transform: translateZ(calc(var(--index) * .6)) rotateY(15deg);
+    z-index: -4;
+}
+
+
+/*Left*/
+
+.items .item:has( + :hover){
+    filter: inherit;
+    transform: translateZ(calc(var(--index) * 8.5)) rotateY(-35deg);
+}
+
+.items .item:has( + * + :hover){
+    filter: inherit;
+    transform: translateZ(calc(var(--index) * 5.6)) rotateY(-40deg);
+}
+
+.items .item:has( + * + * + :hover){
+    filter: inherit;
+    transform: translateZ(calc(var(--index) * 2.5)) rotateY(-30deg);
+}
+
+.items .item:has( + * + * + * + :hover){
+    filter: inherit;
+    transform: translateZ(calc(var(--index) * .6)) rotateY(-15deg);
+}
+
+.items .item:active, .items .item:focus {
+	width: 28vw;
+	filter: inherit;
+	z-index: 100;
+	transform: translateZ(calc(var(--index) * 10));
+    margin: 0 .45vw;
+}
+
+  
+  </style>
+  <body>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+  
+    <script>
+   function toggleContainer(index) {
+    var containerIDs = [
+        ['firstContainer1', 'secondContainer1'],
+        ['firstContainer2', 'secondContainer2'],
+        ['firstContainer3', 'secondContainer3'],
+        ['firstContainer4', 'secondContainer4'],
+        ['firstContainer5', 'secondContainer5'],
+        // Add more rows as needed
+    ];
+
+    var firstId = containerIDs[index][0];
+    var secondId = containerIDs[index][1];
+    
+
+    var secondContainer = document.getElementById(secondId);
+
+    secondContainer.classList.toggle('pop-up');
+    secondContainer.classList.add('animate');
+}
+
+
+  // Define text for each container
+  var textToType = [
+    " What is 📸 Pixellens ? ",
+    "What the Activities ?"
+  ];
+  var typingSpeed = 100; // Adjust typing speed in milliseconds
+
+  // Function to simulate typing effect for each container
+  function typeText(elementId, textIndex) {
+    var element = document.getElementById(elementId);
+    var index = 0;
+    var typingInterval = setInterval(function() {
+      element.textContent += textToType[textIndex][index];
+      index++;
+      if (index === textToType[textIndex].length) {
+        clearInterval(typingInterval);
+      }
+    }, typingSpeed);
+  }
+
+  // Call the function for each container when the page loads
+  window.onload = function() {
+    typeText('typingText', 0);
+    typeText('typingText2', 1);
+  };
+
+
+  $(selector).scroll(function () { 
+    
+    
+  });
+
+    </script>
+
+
+
+    
+    <main>
+      <nav class="navbar navbar-expand-sm  ">
+        <div class="container-fluid">
+          <img id="myimage" src="album/showcase/aa87bd0d-e51c-4d99-a32e-01fad1beda1b.png" alt="Bootstrap" width="75" height="45">
+  
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="PIxellens.html">Pixellens</a>
+            </li>         
+            
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="index.html">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="team.html">Team</a>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link " href="Activities.html" role="button" >
+                  Activies
+                </a>
+             
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="events.html" aria-disabled="true">Events</a>
+              </li>
+            </ul>
+           <!-- <div class="text-end">
+              <button type="button" class="btn btn-outline-white me-2" data-bs-toggle="modal2" data-bs-target="#exampleModal2">Login</button>
+              <button type="button" class="btn btn-warning"  data-bs-toggle="modal" data-bs-target="#exampleModal">Sign-up</button>
+            </div> -->
+          </div>
+        </div>
+      </nav>
+  
+
+ 
+      <div class="wrapper">
+        <div class="items">
+          <div class="item" tabindex="0" style="background-image: url('../elements/album/IMG_0750.jpg')"></div>
+          <div class="item" tabindex="0" style="background-image: url('../elements/album/IMG_1088.jpg')"></div>
+          <div class="item" tabindex="0" style="background-image: url('../elements/album/IMG_20220802_202359.jpg')"></div>
+          <div class="item" tabindex="0" style="background-image: url('../elements/album/IMG_20230823_160038.jpg')"></div>
+          <div class="item" tabindex="0" style="background-image: url('../elements/album/IMG_20230823_160337.jpg')"></div>
+          <div class="item" tabindex="0" style="background-image: url('../elements/album/WhatsApp\ Image\ 2024-03-15\ at\ 10.16.40\ PM\ \(1\).jpeg')"></div>
+          <div class="item" tabindex="0" style="background-image: url('../elements/album/WhatsApp\ Image\ 2024-03-15\ at\ 10.16.41\ PM\ \(1\).jpeg')"></div>
+          <div class="item" tabindex="0" style="background-image: url('../elements/album/WhatsApp\ Image\ 2024-03-16\ at\ 4.22.28\ AM.jpeg')"></div>
+          <div class="item" tabindex="0" style="background-image: url('../elements/album/WhatsApp\ Image\ 2024-03-16\ at\ 4.22.08\ AM.jpeg')"></div>
+        
+          </div>
+            
+          </div>
+
+<div class="page-header min-vh-100">
+  <div class="position-absolut w-50 h-50 z-index-0 d-none d-sm-none d-md-block" ></div>
+
+
+  <hr class="featurette-divider">
+
+  <div class="row featurette" >
+    <div class="col-md-5 d-flex justify-content-center ">
+      <div id="firstContainer1" class="card card-body blur d-flex justify-content-center shadow-lg p-5 mt-5 ms-3 animate">
+        <h1 id="typingText" class="text-gradient text-primary fw-bold"></h1>
+        <p class="lead pe-5 me-5">This is another container in the same row.</p>
+        <p><a class="btn btn-lg btn-light blur s-flex shadow-sm" onclick="toggleContainer(0)">Know</a></p>
+    
+        <!-- Add content for the new container here -->
+      </div>
+</div>
+
+
+
+
+<div id="backgroundImageContainer1" class="col-md-7 d-flex justify-content-center flex-column ">
+  <div  id="secondContainer1" class="card card-body blur d-flex justify-content-center shadow-lg p-5 mt-5 hide">
+          <h1 class="text-gradient text-primary fw-bold">Pixellens is the Filmmaking Club 🎬</h1>
+          <h1 class="mb-4">MBM University</h1>
+          <p class="lead pe-1 me-1 fw-bold"> Dedicated to fostering creativity, collaboration, and skill development among students interested in film production and related arts. Established with the aim of providing a platform for budding filmmakers to hone their craft and explore their passion for visual storytelling. </p>
+          <div class="buttons">
+            <button type="button" class="btn bg-gradient-primary mt-4">Get Started</button>
+          </div>
+        </div>
+      </div>
+    </div>
+ 
+    
+    
+    <hr class="featurette-divider">
+    <div class="row featurette2">
+      
+      <div class="col-md-5 d-flex justify-content-center">
+        <div id="firstContainer2" class="card card-body blur d-flex justify-content-center shadow-lg p-5 mt-5 animate">
+          <h1 id="typingText2" class="text-gradient text-primary fw-bold"></h1>
+          <p class="lead pe-5 me-5">This is another container in the same row. </p>
+          <p><a class="btn btn-lg btn-light blur s-flex shadow-sm"  onclick="toggleContainer(1)">Know</a></p>
+    
+          <!-- Add content for the new container here -->
+        </div>
+      </div>
+      
+      <div id="backgroundImageContainer2" class="col-md-7  justify-content-center flex-column  ">
+        <div id="secondContainer2" class="card card-body blur d-flex justify-content-center shadow-lg p-5 mt-5 hide">
+
+          <h1 class="text-gradient text-primary fw-bold">Activities in Pixellens include: </h1>
+          <h1 class="mb-4"></h1>
+          <p class="lead pe-5 me-5 fw-bold ">Regular Meetings,
+            Workshops and Training Sessions 📚,
+            Photowalks 🚶‍♂️,
+            Fun Trips 🌄,
+            Film Screenings,
+            Collaborative Projects, &
+            Competitions and Challenges🥇 </p>
+          <div class="buttons">
+            <button type="button" class="btn bg-gradient-primary mt-4">Get Started</button>
+          </div>
+        </div>
+      </div>
+
+ 
+    
+    </div>
+
+    
+    <hr class="featurette-divider">
+
+    <div class="row featurette" >
+      <div class="col-md-5 d-flex justify-content-center">
+        <div id="firstContainer3" class="card card-body blur d-flex justify-content-center shadow-lg p-5 mt-5 ms-3 animate">
+          <h1 id="typingText" class="text-gradient text-primary fw-bold"> When Pixellens Start. ?</h1>
+          <p class="lead pe-5 me-5">This is another container in the same row.</p>
+          <p><a class="btn btn-lg btn-light blur s-flex shadow-sm" onclick="toggleContainer(2)">Know</a></p>
+      
+          <!-- Add content for the new container here -->
+        </div>
+  </div>
+
+  <div id="backgroundImageContainer3" class="col-md-7 d-flex justify-content-center flex-column ">
+    <div id="secondContainer3" class="card card-body blur d-flex justify-content-center shadow-lg p-5 mt-5 hide">
+            <h1 class="text-gradient text-primary fw-bold">Pixellens, established in</h1>
+            <h1 class="mb-4 fw-bold">23 MARCH 2022</h1>
+            <p class="lead pe-5 me-5 fw-bold">Pixellens is the brainchild of two distinguished alumni, Praveen Boss and Bharat Boss. Rooted in their shared vision and passion for filmmaking, Pixellens was founded with the aim of nurturing a vibrant community of aspiring filmmakers within Our University and beyond. </p>
+            <div class="buttons">
+              <button type="button" class="btn bg-gradient-primary mt-4">Get Started</button>
+            </div>
+          </div>
+        </div>
+      </div>
+   
+      
+      <hr class="featurette-divider">
+
+      <div class="row featurette2">
+     
+        <div class="col-md-5 d-flex justify-content-center">
+          <div class="card card-body blur d-flex justify-content-center shadow-lg p-5 mt-5 animate">
+            <h1 id="firstContainer4" class="text-gradient text-primary fw-bold">Our Goals 🎯 </h1>
+            <p class="lead pe-5 me-5">This is another container in the same row.</p>
+            <p><a class="btn btn-lg btn-light blur s-flex shadow-sm"  onclick="toggleContainer(3)">Know</a></p>
+          </div>
+        </div>
+
+        <div id="backgroundImageContainer4" class="col-md-7 order-md-1 order-md-2 d-flex justify-content-center flex-column">
+          <div id="secondContainer4" class="card card-body blur d-flex justify-content-center shadow-lg p-5 mt-5 hide">
+            <h1 class="text-gradient text-primary fw-bold">Main Goal of Pixellens is </h1>
+            <h1 class="mb-4 fw-bold">Cultivating Talent:</h1>
+            <p class="lead pe-5 me-5 fw-bold">Pixellens aims to provide a nurturing environment where aspiring filmmakers can cultivate their talent and develop their skills in various aspects of filmmaking, including directing, cinematography, editing, and sound design. </p>
+          </div>
+        </div>
+        
+      </div>
+      
+
+
+      <hr class="featurette-divider">
+
+      <div class="row featurette" >
+        <div class="col-md-5 d-flex justify-content-center">
+          <div id="firstContainer5" class="card card-body blur d-flex justify-content-center shadow-lg p-5 mt-5 ms-3 animate">
+            <h1 id="typingText" class="text-gradient text-primary fw-bold"> Our AIM 🚀.</h1>
+            <p class="lead pe-5 me-5">This is another container in the same row.</p>
+            <p><a class="btn btn-lg btn-light blur s-flex shadow-sm" onclick="toggleContainer(4)">Know</a></p>
+        
+            <!-- Add content for the new container here -->
+          </div>
+    </div>
+    <div id="backgroundImageContainer5" class="col-md-7 d-flex justify-content-center flex-column ">
+      <div id="secondContainer5" class="card card-body blur d-flex justify-content-center shadow-lg p-5 mt-5 hide">
+              <h1 class="text-gradient text-primary fw-bold">The AIM of Pixellens is </h1>
+              <h1 class="mb-4 fw-bold">Creating Opportunities:</h1>
+              <p class="lead pe-1 me-1 fw-bold"> We aim to create opportunities for our members to showcase their work, whether through film screenings, competitions, or collaborative projects. By providing platforms for recognition and exposure, we seek to empower our members to pursue their passion for filmmaking with confidence. </p>
+            
+            </div>
+          </div>
+        </div>
+        
+        
+    
+     
+
+
+  
+  </>
+
+</div>
+</div>
+
+</main>
+
+
+  </body>
+</html>
